@@ -13,7 +13,7 @@ import {
   Users
 } from 'lucide-react';
 
-// Unified image assets extracted cleanly from public directory structure references
+// Exact picture names matching your workspace files perfectly
 const SHOWCASE_IMAGES = [
   "5030899192326458474_119.jpg", "5030899192326458475_119.jpg",
   "5030899192326458476_121.jpg", "5030899192326458477_119.jpg",
@@ -36,7 +36,7 @@ const SHOWCASE_IMAGES = [
   "5030899192326458510_119.jpg", "5030899192326458512_119.jpg"
 ];
 
-// Exact parsed menu options from the verified assets
+// Exact parsed menu pricing from your uploaded design flyers
 const MENU_DATA = {
   appetizers: [
     { name: "BIG Hummus Dip", price: 5.99 },
@@ -89,7 +89,7 @@ export default function PremiumGrillDashboard() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
         
-        {/* PREMIUM EXCLUSIVE SECTION: X LARGE FAMILY MEAL */}
+        {/* EXCLUSIVE SECTION: X LARGE FAMILY MEAL BRACKET */}
         <section className="relative overflow-hidden rounded-3xl border border-emerald-500/30 bg-gradient-to-b from-slate-900 via-[#0e1716] to-slate-950 shadow-2xl">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.08),transparent_45%)]" />
           
@@ -223,7 +223,6 @@ export default function PremiumGrillDashboard() {
                   </div>
                 ))}
                 
-                {/* Special Box Callout inside section */}
                 <div className="mt-4 pt-4 border-t border-slate-800/80 bg-emerald-500/5 p-3 rounded-xl border border-emerald-500/10">
                   <div className="flex justify-between items-center text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">
                     <span>⭐ Chef's Premium Choice Mix</span>
@@ -253,21 +252,21 @@ export default function PremiumGrillDashboard() {
             </p>
           </div>
 
-          {/* GRID OF PRESET VERIFIED PUBLIC DIRECTORY IMAGE OBJECTS */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {SHOWCASE_IMAGES.map((filename, index) => (
               <div 
                 key={index} 
                 className="group relative bg-slate-900/60 border border-slate-800 rounded-xl overflow-hidden aspect-square flex flex-col justify-between p-3.5 hover:border-emerald-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/5"
               >
-                {/* Fixed Native Next.js Image Optimization Engine */}
+                {/* Fixed Native Next.js Image Component with Production Safe Configuration */}
                 <div className="absolute inset-0 bg-slate-950 z-0">
                   <Image 
                     src={`/${filename}`} 
                     alt={`Showcase item ${index + 1}`}
                     fill
+                    unoptimized={true}
                     className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                    sizes="(max-w-640px) 50vw, (max-w-1024px) 25vw, 16vw"
+                    sizes="(max-w-768px) 50vw, (max-w-1200px) 25vw, 16vw"
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center bg-slate-950/40 group-hover:bg-slate-950/10 transition-colors">
                     <Utensils className="w-5 h-5 text-slate-600 group-hover:text-emerald-400 transition-colors mb-1" />
@@ -275,7 +274,6 @@ export default function PremiumGrillDashboard() {
                   </div>
                 </div>
 
-                {/* Subtle Meta Layout Info */}
                 <div className="relative z-10 flex items-center justify-between w-full mt-auto">
                   <span className="bg-slate-900/90 text-[9px] font-mono text-slate-500 px-1.5 py-0.5 rounded border border-slate-800 max-w-[85%] truncate">
                     ...{filename.slice(-14)}
@@ -289,7 +287,6 @@ export default function PremiumGrillDashboard() {
 
       </main>
 
-      {/* FOOTER METRICS */}
       <footer className="mt-20 border-t border-slate-900 bg-slate-950/40 py-8 px-6 text-center text-xs text-slate-500">
         <p>© 2026 Top Organic Grill. All digital menu vector assets verified. Optimized for production deployment vectors.</p>
       </footer>
