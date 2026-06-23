@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 // Specialized Interface for Regional Map Structure
 interface RegionProfile {
@@ -12,7 +13,7 @@ interface RegionProfile {
   translation: string;
 }
 
-// 🗺️ Pristine Middle East Cultural & Actually Funny Database
+// 🗺️ Pristine Middle East Cultural Database
 const REGIONAL_MAP: Record<string, RegionProfile> = {
   levant: {
     country: "The Levant (Syria, Lebanon, Jordan)",
@@ -51,7 +52,7 @@ const REGIONAL_MAP: Record<string, RegionProfile> = {
     famousFor: "Flash-seared iron skillet beef shawarma loaded with fresh tomatoes and heavy tahini streams. Home of the perfectly spiced golden herb falafels.",
     comedyLineEng: "Our falafels have the ultimate crunch. They are so incredibly crispy and light, you will completely forget what you were originally arguing about before dinner.",
     comedyLineAr: "الفلافل عندنا ذهبية ومقرمشة لدرجة لا تُصدق! من أول قرمشة الطعم ينسيك كل مشاكلك، لدرجة راح تنسى حتى وين صفّيت سيارتك برة المطعم.",
-    poem: "«وفي الفلافلِ سحرٌ لو تذوّقَهُ.. مَلِكُ الملوكِ لَأَضحى فَقيرَ مَثواها»",
+    poem: "«وفيالفلافلِ سحرٌ لو تذوّقَهُ.. مَلِكُ الملوكِ لَأَضحى فَقيرَ مَثواها»",
     translation: "And in falafel there is a magic that, if a king of kings were to taste it, he would become a humble seeker of its place."
   }
 };
@@ -74,21 +75,22 @@ export default function Home() {
   const [selectedRegion, setSelectedRegion] = useState<keyof typeof REGIONAL_MAP>('levant');
   const [activeMenuTab, setActiveMenuTab] = useState<'plates' | 'wraps'>('plates');
 
-  // Hardcoded verified configuration credentials 
+  // Verified configuration credentials 
   const restaurantPhone = "+14807382518";
   const displayPhone = "(480) 738-2518";
+  const instagramUrl = "https://www.instagram.com/top.organic.usa?igsh=ODZnNjZ4bXNjeTJq";
   const fullAddressUrlEncoded = encodeURIComponent("8020 N 27th Ave, Phoenix, AZ 85051");
   const smsBodyEncoded = encodeURIComponent("Hi Top Organic! I would like to inquire about ordering text catering for my event.");
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-950 via-[#01140e] to-stone-950 text-stone-100 font-sans antialiased selection:bg-amber-400 selection:text-stone-950">
       
-      {/* Top Elite Live Ticker */}
+      {/* Top Live Ticker */}
       <div className="bg-emerald-950 border-b border-emerald-900/30 text-amber-400 px-4 py-2.5 text-center text-xs font-black tracking-widest uppercase">
         🚀 PHOENIX REGIONAL COMMAND: GRAND OPENING OFFICIALLY COMMENCING ON JUNE 20, 2026 🚀
       </div>
 
-      {/* Clean Premium Navigation Header */}
+      {/* Navigation Header */}
       <nav className="bg-stone-950/80 border-b border-emerald-950 py-6 px-6 sticky top-0 z-50 backdrop-blur-md">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="text-center sm:text-left">
@@ -101,6 +103,8 @@ export default function Home() {
           <div className="flex flex-wrap justify-center items-center gap-6 text-xs uppercase tracking-widest font-black text-stone-300">
             <a href="#menu" className="hover:text-amber-400 transition-colors">Menu Layout</a>
             <a href="#heritage-map" className="hover:text-amber-400 transition-colors">Culinary Map</a>
+            <a href="#showcase" className="hover:text-amber-400 transition-colors">Gallery</a>
+            <a href="#instagram-hub" className="hover:text-amber-400 transition-colors text-pink-400">Instagram Feed</a>
             <a href="#catering-text" className="hover:text-amber-400 transition-colors text-amber-400 font-black">Text to Order</a>
             <a href="#patriot-tribute" className="hover:text-amber-400 transition-colors">Patriot Honor</a>
             <a href={`tel:${restaurantPhone}`} className="text-amber-400 border border-amber-400/30 px-3 py-1.5 rounded-lg hover:bg-amber-400 hover:text-stone-950 transition-all duration-200 font-mono">
@@ -110,7 +114,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Straightforward High-Class Hero Section */}
+      {/* Hero Section */}
       <header className="max-w-4xl mx-auto text-center px-6 py-24 space-y-6 relative">
         <div className="inline-block text-[10px] font-black tracking-widest bg-emerald-950/60 border border-emerald-800 text-emerald-400 px-4 py-1.5 rounded-full uppercase">
           🚨 WARNING: FLAVOR SPEED IN FULL EFFECT 🚨
@@ -185,7 +189,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Mouthwatering Classic Poetry Array */}
+              {/* Classic Poetry Array */}
               <div className="pt-4 border-t border-stone-900 text-right space-y-1">
                 <span className="text-[8px] font-black uppercase tracking-widest text-stone-500 block text-left mb-1">Mouthwatering Classic Poetry</span>
                 <p className="text-lg sm:text-xl font-bold text-amber-400 tracking-wide font-sans leading-relaxed" dir="rtl">
@@ -203,7 +207,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 2: Straightforward, McDonald's Style Clean Menu Layout */}
+      {/* SECTION 2: Menu Layout */}
       <section id="menu" className="max-w-5xl mx-auto px-6 py-12 scroll-mt-24">
         <div className="text-center mb-10">
           <span className="text-amber-400 text-[10px] font-black uppercase tracking-widest block mb-1">Zero Clutter Pricing</span>
@@ -226,7 +230,7 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Dynamic Pure List Renderer */}
+        {/* Pure List Renderer */}
         <div className="bg-stone-900/20 border border-white/[0.02] rounded-2xl p-6 sm:p-8 space-y-6 shadow-2xl">
           {SIMPLE_MENU[activeMenuTab].map((item, index) => (
             <div key={index} className="flex justify-between items-start gap-4 pb-5 border-b border-stone-900 last:pb-0 last:border-b-0 group">
@@ -242,7 +246,88 @@ export default function Home() {
         </div>
       </section>
 
-      {/* NEW SECTION: High-Performance Instant Catering Text-to-Order Panel */}
+      {/* SECTION 3: Image Showcase Gallery */}
+      <section id="showcase" className="max-w-5xl mx-auto px-6 py-12 scroll-mt-24">
+        <div className="text-center mb-10">
+          <span className="text-amber-400 text-[10px] font-black uppercase tracking-widest block mb-1">Visual Asset Fleet</span>
+          <h3 className="text-3xl font-black text-white tracking-tight">Culinary & Brand Showcase</h3>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <div className="bg-stone-900/40 border border-emerald-950 p-4 rounded-2xl overflow-hidden shadow-xl group">
+            <div className="relative w-full h-64 rounded-xl overflow-hidden mb-3">
+              <Image 
+                src="/5030899192326458474_119.jpg" 
+                alt="Pristine Grilled Shawarma Platter"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                sizes="(max-w-768px) 100vw, 50vw"
+                priority 
+              />
+            </div>
+            <h4 className="text-white font-black text-lg">Flame-Grilled Perfection</h4>
+            <p className="text-stone-400 text-xs font-light mt-1">Served fresh daily at our central headquarters facility.</p>
+          </div>
+
+          <div className="bg-stone-900/40 border border-emerald-950 p-6 rounded-2xl flex flex-col items-center justify-center text-center shadow-xl group">
+            <div className="relative w-[150px] h-[150px] mb-3">
+              <Image 
+                src="/5030899192326458512_119.jpg" 
+                alt="Top Organic Grill Brand Asset"
+                fill
+                className="object-contain opacity-90 drop-shadow-[0_0_15px_rgba(52,211,153,0.2)] group-hover:scale-105 transition-transform duration-300"
+                sizes="150px"
+              />
+            </div>
+            <h4 className="text-white font-black text-lg mt-2">Top Organic Fleet</h4>
+            <p className="text-stone-400 text-xs font-light mt-1">Engineered to absolute perfection.</p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* NEW SECTION: High-Visibility Premium Instagram Showcase Hub */}
+      <section id="instagram-hub" className="max-w-5xl mx-auto px-6 py-12 scroll-mt-24">
+        <div className="bg-gradient-to-br from-stone-900 via-[#1a0b16] to-stone-950 border border-pink-500/20 rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-2xl group">
+          {/* Subtle Ambient Radial Glow Effect */}
+          <div className="absolute -inset-24 bg-[radial-gradient(circle_at_center,rgba(236,72,153,0.07)_0%,transparent_65%)] pointer-events-none" />
+          
+          <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-pink-500/30 bg-pink-950/30 text-pink-400 text-[10px] font-black tracking-widest uppercase">
+              📸 TRANSMISSION STREAM ACTIVE
+            </div>
+            
+            <h3 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
+              Follow The Fleet <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-amber-400 to-amber-200">On Instagram</span>
+            </h3>
+            
+            <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
+              Get an exclusive look behind the scenes at our grills, check out daily special community content drops, and be the first to know about operational announcements.
+            </p>
+
+            <div className="pt-4">
+              <a 
+                href={instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-pink-600 via-purple-600 to-amber-500 hover:from-pink-500 hover:via-purple-500 hover:to-amber-400 text-white font-black text-sm uppercase tracking-widest px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-[1.03] shadow-xl hover:shadow-pink-950/40 active:scale-[0.98]"
+              >
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+                @top.organic.usa
+              </a>
+              <span className="text-[10px] text-stone-500 font-mono tracking-wider block mt-3 uppercase">
+                Tap above to open in the app
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4: Catering Text-to-Order Panel */}
       <section id="catering-text" className="max-w-5xl mx-auto px-6 py-12 scroll-mt-24">
         <div className="bg-gradient-to-r from-emerald-950/40 via-stone-900/80 to-emerald-950/40 border-2 border-amber-400/40 rounded-3xl p-6 sm:p-10 text-center space-y-6 backdrop-blur-md shadow-2xl">
           <div className="space-y-2">
@@ -269,12 +354,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 3: High-Class Veteran, Law Enforcement & Patriot Tribute Panel */}
+      {/* SECTION 5: Veteran, Law Enforcement & Patriot Tribute Panel */}
       <section id="patriot-tribute" className="max-w-5xl mx-auto px-6 py-12 scroll-mt-24">
         <div className="bg-gradient-to-br from-stone-950 via-[#011d14] to-stone-950 border border-emerald-900/40 rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
           
           <div className="grid md:grid-cols-12 gap-8 items-center relative z-10">
-            {/* Left Content Column */}
             <div className="md:col-span-8 space-y-4">
               <div className="inline-flex items-center gap-2 text-amber-400 font-black text-[10px] tracking-widest uppercase bg-stone-950 px-3 py-1 rounded-md border border-stone-850">
                 🇺🇸 STANDING WITH OUR HEROES 🇺🇸
@@ -290,9 +374,8 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Right Symbolic Flag Visualization */}
+            {/* Symbolic Flag Visualization */}
             <div className="md:col-span-4 bg-stone-950/60 p-6 rounded-2xl border border-white/[0.02] flex flex-col items-center justify-center text-center space-y-4">
-              {/* Pure CSS Rendered Minimal American Flag Representation */}
               <div className="w-24 h-14 bg-stone-900 rounded border border-white/10 overflow-hidden relative flex flex-col justify-between p-0.5 opacity-80 shadow-2xl">
                 <div className="bg-blue-900 w-10 h-7 absolute top-0 left-0 flex flex-wrap p-0.5 gap-0.5 items-center justify-center">
                   <div className="w-0.5 h-0.5 bg-white rounded-full"></div>
@@ -319,7 +402,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Multi-Engine Master GPS Navigation Deck */}
+      {/* GPS Navigation Deck */}
       <section className="max-w-5xl mx-auto px-6 py-12">
         <div className="bg-stone-900/40 border border-emerald-950 p-6 sm:p-10 rounded-3xl space-y-6 shadow-2xl">
           <div className="space-y-1 text-center md:text-left">
@@ -328,10 +411,9 @@ export default function Home() {
             <p className="text-xs text-stone-400 font-light">8020 N 27th Ave, Phoenix, AZ 85051 — Operating Daily From 08:00 to 23:00</p>
           </div>
           
-          {/* Grid Layout of Highly Reliable Map Direct Targets */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
             <a 
-              href={`https://maps.google.com/?q=${fullAddressUrlEncoded}`}
+              href={`http://maps.google.com/?q=${fullAddressUrlEncoded}`}
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center justify-center bg-stone-950 hover:bg-emerald-900/50 text-white border border-emerald-900/40 font-black text-xs uppercase tracking-widest p-4 rounded-xl transition-all duration-200 text-center shadow-lg group"
@@ -360,7 +442,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Senior Professional Clean Footer Layout */}
+      {/* Footer Layout */}
       <footer className="bg-stone-950 text-stone-600 py-12 text-xs border-t border-emerald-950">
         <div className="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
           <p className="font-bold text-stone-400 uppercase tracking-wider text-[11px]">© Top Organic Grill. All Rights Reserved.</p>
