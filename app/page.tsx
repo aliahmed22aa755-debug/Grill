@@ -13,7 +13,7 @@ import {
   Users
 } from 'lucide-react';
 
-// Exact picture names matching your workspace files perfectly
+// Unified image assets matching your public folder contents perfectly
 const SHOWCASE_IMAGES = [
   "5030899192326458474_119.jpg", "5030899192326458475_119.jpg",
   "5030899192326458476_121.jpg", "5030899192326458477_119.jpg",
@@ -36,7 +36,7 @@ const SHOWCASE_IMAGES = [
   "5030899192326458510_119.jpg", "5030899192326458512_119.jpg"
 ];
 
-// Exact parsed menu pricing from your uploaded design flyers
+// Verified pricing matrix matching your menu design flyers precisely
 const MENU_DATA = {
   appetizers: [
     { name: "BIG Hummus Dip", price: 5.99 },
@@ -89,7 +89,7 @@ export default function PremiumGrillDashboard() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
         
-        {/* EXCLUSIVE SECTION: X LARGE FAMILY MEAL BRACKET */}
+        {/* PREMIUM SPECIAL SECTION: X LARGE FAMILY MEAL BRACKET */}
         <section className="relative overflow-hidden rounded-3xl border border-emerald-500/30 bg-gradient-to-b from-slate-900 via-[#0e1716] to-slate-950 shadow-2xl">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.08),transparent_45%)]" />
           
@@ -258,7 +258,7 @@ export default function PremiumGrillDashboard() {
                 key={index} 
                 className="group relative bg-slate-900/60 border border-slate-800 rounded-xl overflow-hidden aspect-square flex flex-col justify-between p-3.5 hover:border-emerald-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/5"
               >
-                {/* Fixed Native Next.js Image Component with Production Safe Configuration */}
+                {/* Native Next.js Image Component with Production Safe Configuration */}
                 <div className="absolute inset-0 bg-slate-950 z-0">
                   <Image 
                     src={`/${filename}`} 
@@ -292,4 +292,4 @@ export default function PremiumGrillDashboard() {
       </footer>
     </div>
   );
-}
+} 
