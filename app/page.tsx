@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { 
   Utensils, 
   ShoppingBag, 
@@ -117,7 +118,7 @@ export default function PremiumGrillDashboard() {
               </div>
 
               <p className="text-slate-300 leading-relaxed max-w-xl text-base sm:text-lg">
-                An ultra-premium, complete culinary feast thoughtfully bundled for large gatherings. Experience authentic textures and perfectly balance recipes.
+                An ultra-premium, complete culinary feast thoughtfully bundled for large gatherings. Experience authentic textures and perfectly balanced recipes.
               </p>
 
               {/* Box Components Checklist */}
@@ -194,7 +195,7 @@ export default function PremiumGrillDashboard() {
             <div className="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 hover:border-slate-700/80 transition-all duration-200">
               <div className="flex items-center space-x-2.5 mb-5 border-b border-slate-800 pb-3">
                 <Utensils className="w-5 h-5 text-emerald-400" />
-                <h4 className="font-bold text-lg text-white">Sandwiches & Wraqs</h4>
+                <h4 className="font-bold text-lg text-white">Sandwiches & Wraps</h4>
               </div>
               <div className="space-y-4">
                 {MENU_DATA.wraps.map((item, idx) => (
@@ -259,16 +260,14 @@ export default function PremiumGrillDashboard() {
                 key={index} 
                 className="group relative bg-slate-900/60 border border-slate-800 rounded-xl overflow-hidden aspect-square flex flex-col justify-between p-3.5 hover:border-emerald-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/5"
               >
-                {/* Simulated Image Placeholder with real assets reference route */}
-                <div className="absolute inset-0 bg-slate-950 flex flex-col items-center justify-center p-4 text-center z-0">
-                  <img 
+                {/* Fixed Native Next.js Image Optimization Engine */}
+                <div className="absolute inset-0 bg-slate-950 z-0">
+                  <Image 
                     src={`/${filename}`} 
                     alt={`Showcase item ${index + 1}`}
-                    className="w-full h-full object-cover rounded-md opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                    onError={(e) => {
-                      // Fallback visual display styling if physical files are still being copied over local system
-                      (e.target as HTMLElement).style.display = 'none';
-                    }}
+                    fill
+                    className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                    sizes="(max-w-640px) 50vw, (max-w-1024px) 25vw, 16vw"
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center bg-slate-950/40 group-hover:bg-slate-950/10 transition-colors">
                     <Utensils className="w-5 h-5 text-slate-600 group-hover:text-emerald-400 transition-colors mb-1" />
