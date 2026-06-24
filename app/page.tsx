@@ -1,18 +1,18 @@
+"use client";
 import React from 'react';
 import Image from 'next/image';
-import { 
-  Utensils, 
-  ShoppingBag, 
-  Flame, 
-  Layers, 
-  Sparkles, 
-  Grid, 
+import {
+  Utensils,
+  ShoppingBag,
+  Flame,
+  Layers,
+  Sparkles,
+  Grid,
   Image as ImageIcon,
   CheckCircle2,
   Clock,
-  Users
+  Users,
 } from 'lucide-react';
-
 // Unified image assets matching your public folder contents perfectly
 const SHOWCASE_IMAGES = [
   "5030899192326458474_119.jpg", "5030899192326458475_119.jpg",
