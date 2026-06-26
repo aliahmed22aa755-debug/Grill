@@ -2,15 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Utensils, Compass, Image as ImageIcon, Award, MapPin } from 'lucide-react';
-
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      [elemName: string]: any;
-    }
-  }
-}
+// lightweight local icon fallbacks to avoid external dependency on 'lucide-react'
+const Utensils = ({ size = 16, className = '' }: any) => <span style={{ fontSize: size }} className={className}>🍴</span>;
+const Compass = ({ size = 16, className = '' }: any) => <span style={{ fontSize: size }} className={className}>🧭</span>;
+const ImageIcon = ({ size = 16, className = '' }: any) => <span style={{ fontSize: size }} className={className}>🖼️</span>;
+const Award = ({ size = 16, className = '' }: any) => <span style={{ fontSize: size }} className={className}>🏆</span>;
+const MapPin = ({ size = 16, className = '' }: any) => <span style={{ fontSize: size }} className={className}>📍</span>;
 
 interface RegionProfile {
   country: string;
